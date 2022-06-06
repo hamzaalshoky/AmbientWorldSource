@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ambientworld:hippo_meat"
+  },
+  "result": "ambientworld:cooked_hippo_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}
