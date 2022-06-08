@@ -75,7 +75,7 @@ public class HippoEntity extends Animal implements IAnimatable, NeutralMob{
                 .add(Attributes.ATTACK_DAMAGE, 7.0f)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.1D)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.26f).build();
     }
 
 
@@ -88,6 +88,7 @@ public class HippoEntity extends Animal implements IAnimatable, NeutralMob{
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(6, (new HurtByTargetGoal(this)).setAlertOthers());
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Player.class, 5, true, true, (Predicate<LivingEntity>)null));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Zombie.class, 5, true, true, (Predicate<LivingEntity>)null));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Skeleton.class, 5, true, true, (Predicate<LivingEntity>)null));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Villager.class, 5, true, true, (Predicate<LivingEntity>)null));
@@ -138,11 +139,6 @@ public class HippoEntity extends Animal implements IAnimatable, NeutralMob{
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walk", true));
-            return PlayState.CONTINUE;
-        }
-
-        if (this.isEnraged() || event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("chase", true));
             return PlayState.CONTINUE;
         }
 
