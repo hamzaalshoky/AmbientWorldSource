@@ -16,8 +16,12 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.parrie43.ambientworld.entity.ModEntityTypes;
+import net.parrie43.ambientworld.entity.client.FlamingoRenderer;
 import net.parrie43.ambientworld.entity.client.HippoRenderer;
+import net.parrie43.ambientworld.entity.client.OpahRenderer;
+import net.parrie43.ambientworld.entity.custom.FlamingoEntity;
 import net.parrie43.ambientworld.entity.custom.HippoEntity;
+import net.parrie43.ambientworld.entity.custom.OpahEntity;
 import net.parrie43.ambientworld.item.ModItems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -53,6 +57,8 @@ public class AmbientWorld
 
     private void setup(EntityAttributeCreationEvent event) {
         event.put(ModEntityTypes.HIPPO.get(), HippoEntity.setAttributes());
+        event.put(ModEntityTypes.OPAH.get(), OpahEntity.setAttributes());
+        event.put(ModEntityTypes.FLAMINGO.get(), FlamingoEntity.setAttributes());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -63,6 +69,8 @@ public class AmbientWorld
 
     public void clientSetup(final FMLCommonSetupEvent event){
         EntityRenderers.register(ModEntityTypes.HIPPO.get(), HippoRenderer::new);
+        EntityRenderers.register(ModEntityTypes.OPAH.get(), OpahRenderer::new);
+        EntityRenderers.register(ModEntityTypes.FLAMINGO.get(), FlamingoRenderer::new);
     }
 
     private void processIMC(final InterModProcessEvent event)

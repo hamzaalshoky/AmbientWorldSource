@@ -31,6 +31,17 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_HIPPO_MEAT = ITEMS.register("cooked_hippo_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTabs.AMBIENT_WORLD_TAB).food(ModFoods.COOKED_HIPPO_MEAT)));
 
+    public static final RegistryObject<Item> OPAH_SPAWN_EGG = ITEMS.register("opah_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.OPAH,3891452, 14286848,
+                    new Item.Properties().tab(ModCreativeModeTabs.AMBIENT_WORLD_TAB)));
+
+    public static final RegistryObject<Item> FLAMINGO_SPAWN_EGG = ITEMS.register("flamingo_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.FLAMINGO,14839920, 14766659,
+                    new Item.Properties().tab(ModCreativeModeTabs.AMBIENT_WORLD_TAB)));
+
+    public static final RegistryObject<Item> SHRIMP = ITEMS.register("shrimp",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTabs.AMBIENT_WORLD_TAB).food(ModFoods.SHRIMP)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
