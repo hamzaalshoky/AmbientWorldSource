@@ -1,0 +1,81 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.opah",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "fishe",
+					"pivot": [0, 6, 0]
+				},
+				{
+					"name": "body",
+					"parent": "fishe",
+					"pivot": [0, 5, 0],
+					"cubes": [
+						{"origin": [-2, 0, -8], "size": [4, 15, 15], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "fishe",
+					"pivot": [0, 4, 7],
+					"cubes": [
+						{"origin": [0, 1, 7], "size": [0, 7, 6], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "down_fin",
+					"parent": "fishe",
+					"pivot": [0, 0, 7],
+					"cubes": [
+						{"origin": [0, -1, 4], "size": [0, 4, 4], "uv": [0, 31]}
+					]
+				},
+				{
+					"name": "up_fin",
+					"parent": "fishe",
+					"pivot": [0, 15, 2],
+					"cubes": [
+						{"origin": [0, 8, -3], "size": [0, 13, 11], "uv": [28, 20]}
+					]
+				},
+				{
+					"name": "left_fin",
+					"parent": "fishe",
+					"pivot": [2, 9, -2]
+				},
+				{
+					"name": "cube_r1",
+					"parent": "left_fin",
+					"pivot": [2, 10, -3],
+					"rotation": [0, 9.99811, 0],
+					"cubes": [
+						{"origin": [2, 8, -2], "size": [0, 3, 5], "uv": [24, 0]}
+					]
+				},
+				{
+					"name": "right_fin",
+					"parent": "fishe",
+					"pivot": [-2, 9, -2]
+				},
+				{
+					"name": "cube_r2",
+					"parent": "right_fin",
+					"pivot": [-2, 10, -2],
+					"rotation": [0, -9.99811, 0],
+					"cubes": [
+						{"origin": [-2.1736, 8, -1.9848], "size": [0, 3, 5], "uv": [30, 4]}
+					]
+				}
+			]
+		}
+	]
+}

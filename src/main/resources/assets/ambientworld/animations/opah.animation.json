@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true
+		},
+		"swim": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"fishe": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 35, 0]
+						},
+						"0.25": {
+							"vector": [0, -35, 0]
+						},
+						"0.5": {
+							"vector": [0, 35, 0]
+						}
+					}
+				}
+			}
+		},
+		"flop": {
+			"loop": true,
+			"bones": {
+				"fishe": {
+					"rotation": {
+						"vector": [0, 0, -90]
+					},
+					"position": {
+						"vector": [1, -4, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}
