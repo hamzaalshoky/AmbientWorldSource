@@ -1,5 +1,6 @@
 package net.parrie43.ambientworld.entity.custom;
 
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -9,12 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -25,6 +25,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.parrie43.ambientworld.AmbientWorld;
@@ -133,6 +134,14 @@ public class FlamingoEntity extends Animal implements IAnimatable{
         }
         return InteractionResult.CONSUME;
     }*/
+
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746_, DifficultyInstance p_146747_,
+                                        MobSpawnType p_146748_, @Nullable SpawnGroupData p_146749_,
+                                        @Nullable CompoundTag p_146750_) {
+        FlamingoVariant variant = Util.getRandom(FlamingoVariant.values(), this.random);
+        setVariant(variant);
+        return super.finalizeSpawn(p_146746_, p_146747_, p_146748_, p_146749_, p_146750_);
+    }
 
     public FlamingoVariant getVariant() {
         return FlamingoVariant.byId(this.getTypeVariant() & 255);
