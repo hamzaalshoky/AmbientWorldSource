@@ -127,7 +127,6 @@ public class FlamingoEntity extends Animal implements IAnimatable{
         }
 
         level = player.getLevel();
-        ResourceLocation lootTableResLoc = new ResourceLocation(AmbientWorld.MOD_ID, "ambientworld:loot_tables/entities/flamingo_barter_loot");
         if(!level.isClientSide()){
             Collection<LootTable> lootTables = (Collection<LootTable>) level.getServer().getLootTables();
 
